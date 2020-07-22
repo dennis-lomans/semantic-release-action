@@ -5,7 +5,7 @@ RUN mkdir /action
 WORKDIR /action
 
 # Install semantic release with plugins
-RUN npm install -g semantic-release @semantic-release/changelog @semantic-release/git @semantic-release/exec  @semantic-release/github @semantic-release/release-notes-generator
+RUN npm install -g @actions/core semantic-release @semantic-release/changelog @semantic-release/git @semantic-release/exec  @semantic-release/github @semantic-release/release-notes-generator
 
 # copy in entrypoint after dependency installation
 COPY entrypoint.js .
