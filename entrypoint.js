@@ -35,11 +35,6 @@ async function run() {
   const [major, minor, patch] = version.split('.');
 
   // set outputs
-  core.exportVariable('NEW_RELEASE_PUBLISHED', 'true');
-  core.exportVariable('RELEASE_VERSION', version);
-  core.exportVariable('RELEASE_MAJOR', major);
-  core.exportVariable('RELEASE_MINOR', minor);
-  core.exportVariable('RELEASE_PATCH', patch);
   core.setOutput('new-release-published', 'true');
   core.setOutput('release-version', version);
   core.setOutput('release-major', major);
