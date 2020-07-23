@@ -76,24 +76,6 @@ steps:
       TAG: v$RELEASE_VERSION
 ```
 
-Using environment variables set by `semantic-release-action`:
-
-```yml
-steps:
-  - uses: actions/checkout@master
-
-  - uses: dennis-lomans/semantic-release-action@master
-    env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-  - run: |
-      echo $RELEASE_VERSION
-      echo $RELEASE_MAJOR
-      echo $RELEASE_MINOR
-      echo $RELEASE_PATCH
-```
-
 If you're _not_ publishing to npm and only want to use this action for GitHub releases, you need to
 include a `.releaserc.js` file in your repo, instructing `semantic-release` to not publish to the
 `npm` registry.
@@ -171,13 +153,3 @@ might be so this is a way to cover more cases.
 | release-major         | The new releases' major version number, i.e. `1`                                                                                                  |
 | release-minor         | The new releases' minor version number, i.e. `8`                                                                                                  |
 | release-patch         | The new releases' patch version number, i.e. `3`                                                                                                  |
-
-**Environment Variables**:
-
-| Environment Variable  | Description                                                                                                                                       |
-| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| NEW_RELEASE_PUBLISHED | Either `'true'` when a new release was published or `'false'` when no release was published. Allows other actions to run or not-run based on this |
-| RELEASE_VERSION       | The new releases' semantic version, i.e. `1.8.3`                                                                                                  |
-| RELEASE_MAJOR         | The new releases' major version number, i.e. `1`                                                                                                  |
-| RELEASE_MINOR         | The new releases' minor version number, i.e. `8`                                                                                                  |
-| RELEASE_PATCH         | The new releases' patch version number, i.e. `3`                                                                                                  |
