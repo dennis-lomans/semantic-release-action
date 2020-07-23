@@ -15,7 +15,6 @@ async function run() {
     core.debug('No release published');
 
     // set outputs
-    core.exportVariable('NEW_RELEASE_PUBLISHED', 'false');
     core.setOutput('new-release-published', 'false');
     return;
   }
