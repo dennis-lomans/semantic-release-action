@@ -11,4 +11,4 @@ RUN npm ci --only=prod
 # copy in entrypoint after dependency installation
 COPY entrypoint.js .
 
-ENTRYPOINT ["ls", "-als", "&", "node", "/action/entrypoint.js"]
+ENTRYPOINT ["node", "/action/entrypoint.js"]
