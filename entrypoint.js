@@ -44,15 +44,18 @@ async function run() {
   core.setOutput('release-patch', patch);
 }
 
-let exec = require('child_process').exec, child;
-child = exec('ls -als',
-    function (error, stdout, stderr) {
-      console.log('stdout: ' + stdout);
-      console.log('stderr: ' + stderr);
-      if (error !== null) {
-        console.log('exec error: ' + error);
-      }
-    });
+let exec = require('child_process').exec;
+function child()
+{
+  exec('ls -als',
+      function (error, stdout, stderr) {
+        console.log('stdout: ' + stdout);
+        console.log('stderr: ' + stderr);
+        if (error !== null) {
+          console.log('exec error: ' + error);
+        }
+      });
+}
 child();
 
 run().catch(core.setFailed);
