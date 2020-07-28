@@ -5,7 +5,7 @@ I unscrupulously copied and modified a little bit and with that introduced me to
 
 
 > GitHub Action for running `semantic-release`. Respects any .releaserc.js configuration file in
-> your repo. Exports [environment variables](#outputs) for you to use in subsequent actions
+> your repo. Exports [output variables](#outputs) for you to use in subsequent actions
 > containing version numbers.
 
 ## Usage
@@ -119,15 +119,6 @@ know whether a new version was cut.
 > it with a version and push it up. In my case I like to push up tags for `latest`, the semver (i.e.
 > `v1.8.3`), and just the major the version (i.e. `v1`).
 
-I want to know 1) if semantic-release cut a new version and 2) what the version is.
-
-There's a number of ways to handle this, but the most elegant way I found to do it was to abstract
-it into it's own custom action. It abstracts away whatever logic you need to figure out what that
-new release number is.
-
-This also scales well, just in case I want to add some flexibility and functionality to this action,
-I can easily leverage it across any project.
-
 ## Inputs
 
 **Docs:** https://help.github.com/en/articles/metadata-syntax-for-github-actions#inputs
@@ -137,10 +128,6 @@ I can easily leverage it across any project.
 | branch         | The branch on which releases should happen. |
 
 ### Outputs
-
-`semantic-release-action` sets both output variables and environment variables because why not?
-Allows users the ability to use whichever they want. I don't know or understand every use case there
-might be so this is a way to cover more cases.
 
 **Docs:** https://help.github.com/en/articles/metadata-syntax-for-github-actions#outputs
 
