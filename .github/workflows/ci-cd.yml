@@ -1,8 +1,8 @@
-name: Validate & Release
+name: Validate
 
 on:
   push:
-    branches: [ master, feature** ]
+    branches: [ master, develop ]
 
 jobs:
 
