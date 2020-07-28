@@ -11,9 +11,6 @@ async function run() {
   const branch = core.getInput('branch', { required: false }) || 'master';
   const result = await semanticRelease({ branch });
 
-  console.log("branch:", core.getInput('branch', { required: false }) || 'master');
-
-
   if (!result) {
     core.debug('No release published');
 
