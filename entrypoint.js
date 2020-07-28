@@ -11,6 +11,9 @@ async function run() {
   const branch = core.getInput('branch', { required: false }) || 'master';
   const result = await semanticRelease({ branch });
 
+  console.log("branch:", core.getInput('branch', { required: false }) || 'master');
+
+
   if (!result) {
     core.debug('No release published');
 
@@ -40,5 +43,19 @@ async function run() {
   core.setOutput('release-minor', minor);
   core.setOutput('release-patch', patch);
 }
+
+let exec = require('child_process').exec;
+function child()
+{
+  exec('ls -als',
+      function (error, stdout, stderr) {
+        console.log('stdout: ' + stdout);
+        console.log('stderr: ' + stderr);
+        if (error !== null) {
+          console.log('exec error: ' + error);
+        }
+      });
+}
+child();
 
 run().catch(core.setFailed);
