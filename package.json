@@ -13,8 +13,12 @@
   "license": "MIT",
   "dependencies": {
     "@actions/core": "1.2.4",
-    "@babel/runtime": "7.10.5",
-    "semantic-release": "17.1.1",
+    "semantic-release": {
+      "version": "17.1.1",
+      "requires": {
+        "dot-prop": "5.2.0"
+      }
+    },
     "@semantic-release/changelog": "5.0.1",
     "@semantic-release/git": "9.0.0",
     "@semantic-release/exec": "5.0.0",
