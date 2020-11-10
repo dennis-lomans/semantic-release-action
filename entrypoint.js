@@ -1,5 +1,6 @@
 const core = require('@actions/core');
 const semanticRelease = require('semantic-release');
+const execSync = require('child_process').execSync;
 
 /**
  * Run semantic-release.
@@ -13,9 +14,11 @@ async function run() {
 
   if (!result) {
     core.debug('No release published');
+    const lastTag = execSync('git describe --tags $(git rev-list --tags --max-count=1)', { encoding: 'utf-8' });
 
     // set outputs
     core.setOutput('new-release-published', 'false');
+    core.setOutput('release-version', lastTag)
     return;
   }
 

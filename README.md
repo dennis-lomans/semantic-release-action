@@ -136,7 +136,7 @@ know whether a new version was cut.
 | Output Variable       | Description                                                                                                                                       |
 | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
 | new-release-published | Either `'true'` when a new release was published or `'false'` when no release was published. Allows other actions to run or not-run based on this |
-| release-version       | The new releases' semantic version, i.e. `1.8.3`                                                                                                  |
+| release-version       | The new releases' semantic version, i.e. `1.8.3`  or the last release when no new release is created.                                                                                                |
 | release-major         | The new releases' major version number, i.e. `1`                                                                                                  |
 | release-minor         | The new releases' minor version number, i.e. `8`                                                                                                  |
 | release-patch         | The new releases' patch version number, i.e. `3`                                                                                                  |
